@@ -1,0 +1,112 @@
+OOP2_PROJECT - COMPLETE SETUP GUIDE
+=================================
+
+1) REQUIRED SOFTWARE
+--------------------
+- Visual Studio 2022
+- Workload: .NET desktop development / Windows Forms
+- .NET Framework 4.7.2 targeting support
+- SQL Server Express
+- SQL Server Management Studio (SSMS)
+
+2) OPEN THE PROJECT
+-------------------
+1. Extract this folder.
+2. Double-click OOP2_Project.sln.
+3. In Visual Studio: Build > Build Solution (Ctrl+Shift+B).
+4. Press F5.
+
+3) DATABASE SETUP
+-----------------
+The C# code currently connects to:
+
+    Data Source=MSI\SQLExpress;
+    Initial Catalog=Project;
+    Integrated Security=True;
+    TrustServerCertificate=True
+
+IMPORTANT:
+If your SQL Server instance is NOT MSI\SQLExpress, open:
+    DbHelper.cs
+
+and change the Data Source to your actual SQL Server instance.
+
+Example:
+    Data Source=.\SQLEXPRESS;
+or:
+    Data Source=YOUR-PC-NAME\SQLEXPRESS;
+
+4) RUN THE DATABASE SCRIPT
+--------------------------
+1. Open SSMS.
+2. Connect to your SQL Server instance.
+3. Open Database.sql.
+4. Click Execute.
+5. Refresh Databases.
+6. You should see database: Project.
+7. Expand Project > Tables.
+8. The required tables are:
+   - ManageUser
+   - SignUp
+   - CompanyManage
+   - VehicleManage
+   - Booking
+   - DriverDetails
+
+5) DEMO LOGIN
+-------------
+Admin:
+    Email: admin@gmail.com
+    Password: 1234
+
+Driver:
+    Email: driver@gmail.com
+    Password: 1234
+
+Passenger:
+    Use Sign Up from the application, then log in.
+
+6) RECOMMENDED TEST ORDER
+-------------------------
+A. Run application.
+B. Login as Admin.
+C. Open Company Manage and add/view a company.
+D. Open Manage User and add a Driver.
+E. Open Vehicle Manage and add a vehicle.
+   Make sure Company and Driver ID are valid.
+F. Logout/login as Passenger.
+G. Sign Up if needed.
+H. Search From and To.
+I. Select a vehicle.
+J. Enter ticket count.
+K. Select payment method.
+L. Confirm booking.
+M. Login as Admin and open Passenger Details.
+N. Login as Driver and search the assigned trip.
+O. Submit/update trip information.
+
+7) IF DATABASE ERROR APPEARS
+----------------------------
+Check:
+- SQL Server service is running.
+- SQL Server instance name matches DbHelper.cs.
+- Database Project exists.
+- Tables exist.
+- Windows account has access to the database.
+
+Typical error:
+"Cannot open database 'Project'..."
+=> Database.sql has not been executed, or the connection string points to another SQL Server instance.
+
+Typical error:
+"SQL Server does not exist or access denied..."
+=> Wrong Data Source in DbHelper.cs or SQL Server service is not running.
+
+8) BEFORE FINAL SUBMISSION
+--------------------------
+- Remove .vs cache (already removed in this final package).
+- Keep Database.sql with the project.
+- Keep this setup guide.
+- Test Build + F5.
+- Test Admin, Driver and Passenger flows.
+- Make sure no test data you do not want to show is left in the database.

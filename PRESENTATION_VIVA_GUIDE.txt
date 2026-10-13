@@ -1,0 +1,156 @@
+OOP2_PROJECT - SIR ER SAMNE PRESENTATION / VIVA GUIDE
+=======================================================
+
+PROJECT TITLE
+-------------
+Transport / Vehicle Management System
+
+ONE-LINE INTRODUCTION
+---------------------
+"Sir, this is a C# Windows Forms based transport management system
+connected with a SQL Server database. It has Admin, Driver and Passenger
+functionalities."
+
+DEMO FLOW
+---------
+1. Start the application.
+2. Show Login page.
+3. Login as Admin:
+       admin@gmail.com
+       1234
+4. Show Admin Dashboard.
+5. Open Company Manage.
+   Say:
+   "Admin can add, update, search and delete transport companies."
+6. Open Manage User.
+   Say:
+   "Admin can manage system users such as drivers."
+7. Open Vehicle Manage.
+   Say:
+   "Admin can create and manage vehicles, routes, dates, ticket prices,
+    company and driver assignment."
+8. Logout.
+9. Sign Up as Passenger / login as Passenger.
+10. Show Passenger Dashboard.
+    Search From and To.
+11. Select a vehicle.
+12. Enter ticket count.
+13. Show total price calculation.
+14. Select payment method.
+15. Click booking.
+    Say:
+    "The booking information is stored in the Booking table."
+16. Login as Admin and open Passenger Details.
+    Say:
+    "Admin can view booking records."
+17. Login as Driver.
+18. Show Driver Dashboard.
+    Say:
+    "The driver can see the vehicle/trip assigned to their user ID and
+     submit trip information."
+
+IMPORTANT CONCEPTS TO EXPLAIN
+----------------------------
+1. OOP
+   "The application is organized using C# classes and Windows Forms.
+    Each major screen is represented by a class, and database access is
+    centralized through DbHelper."
+
+2. DATABASE
+   "SQL Server is used as the backend database."
+
+3. DbHelper
+   "DbHelper contains reusable methods for executing SELECT queries and
+    non-result INSERT/UPDATE/DELETE queries."
+
+4. CRUD
+   "Company, user and vehicle management implement CRUD operations:
+    Create, Read, Update and Delete."
+
+5. RELATIONSHIP
+   "VehicleManage is related to CompanyManage through VehicleComId and
+    CompanyID. Booking stores the booked vehicle and company information."
+
+6. LOGIN
+   "Admin/Driver credentials are checked from ManageUser, while passenger
+    credentials are checked from SignUp."
+
+7. SEARCH
+   "Passenger searches vehicles using starting point, destination and date."
+
+8. BOOKING
+   "Ticket price multiplied by ticket count gives the total price, and
+    booking data is inserted into the Booking table."
+
+9. DRIVER
+   "The driver's assigned vehicles are found using the driver's UserId."
+
+LIKELY VIVA QUESTIONS
+---------------------
+
+Q: What language did you use?
+A: C#.
+
+Q: What framework?
+A: Windows Forms with .NET Framework 4.7.2.
+
+Q: Which database?
+A: Microsoft SQL Server.
+
+Q: Why did you create DbHelper?
+A: To reuse database connection and query execution logic instead of
+   repeating the same connection code in every form.
+
+Q: What is CRUD?
+A: Create, Read, Update and Delete.
+
+Q: What is a primary key?
+A: A column that uniquely identifies each record in a table.
+
+Q: Why is CompanyID used in VehicleManage?
+A: It identifies which company owns/manages the vehicle and allows the
+   application to join vehicle and company information.
+
+Q: How does passenger booking work?
+A: Passenger searches a route, selects a vehicle, enters ticket count,
+   the application calculates total price, and then inserts the booking
+   record into Booking.
+
+Q: How does the driver see assigned vehicles?
+A: The application filters VehicleManage by driverId matching the logged-in
+   driver's UserId.
+
+Q: What happens if the database is unavailable?
+A: DbHelper catches the exception and returns an error message, which the
+   form displays.
+
+Q: What would you improve in a production version?
+A:
+- Use parameterized SQL queries to prevent SQL injection.
+- Hash passwords instead of storing plain text.
+- Store the connection string in configuration.
+- Add stronger validation and transaction handling.
+- Add proper role/permission management.
+
+DO NOT SAY
+----------
+- "I copied the whole code."
+- "I don't know what this does."
+- "Database is not needed."
+- Do not claim a feature works if you have not tested it.
+
+BEST PRESENTATION STYLE
+-----------------------
+Speak in this order:
+Problem -> Solution -> Technologies -> Modules -> Database -> Live Demo
+-> OOP concepts -> Future improvements.
+
+30-SECOND VERSION
+------------------
+"Sir, our project is a C# Windows Forms transport management system using
+SQL Server. The system has Admin, Driver and Passenger modules. Admin can
+manage users, companies and vehicles. Passengers can search routes and
+book tickets. Drivers can view assigned trips and submit trip information.
+DbHelper is used for common database operations. The main database tables
+are ManageUser, SignUp, CompanyManage, VehicleManage, Booking and
+DriverDetails."
